@@ -4,6 +4,28 @@ A simple **SMS Spam Detection** project built using **Python**, **Natural Langua
 
 ---
 
+## Application Results
+
+The following screenshots demonstrate the classification results produced by the system.
+
+### Spam Message Detection
+
+The model correctly identifies a spam message and displays the corresponding spam probability.
+
+<p align="center">
+  <img src="images/spam_result.png" width="600">
+</p>
+
+### Regular Message Detection
+
+The model correctly classifies a legitimate (non-spam) message and displays the associated probability scores.
+
+<p align="center">
+  <img src="images/regular_result.png" width="600">
+</p>
+
+---
+
 ## Requirements
 
 Ensure that **Python 3.9 or higher** is installed on your system.
