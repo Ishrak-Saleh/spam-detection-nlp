@@ -97,12 +97,16 @@ if st.button("[PREDICT]"):
             import time
             time.sleep(0.5)
             
-            result = predict_spam(input_sms)
+            result, prob_spam = predict_spam(input_sms) 
+            percent_spam = f"{prob_spam * 100:.2f}%"
+            percent_ham = f"{(1 - prob_spam) * 100:.2f}%"
+            
 
             if result == 1:
-                st.markdown('<p style="color:#FF0000;">>> SPAM DETECTED</p>', unsafe_allow_html=True)
+                st.markdown('<p style="color:#FF0000;">>> SPAM DETECTED | PROBABILITY: ' + percent_spam + ' SPAM / ' + percent_ham + ' Regular Message</p>', unsafe_allow_html=True)
             else:
-                st.markdown('<p style="color:#00FF00;">>> NOT SPAM</p>', unsafe_allow_html=True)
+                st.markdown('<p style="color:#00FF00;">>> NOT SPAM | PROBABILITY: ' + percent_spam + ' SPAM / ' + percent_ham + ' Regular Message</p>', unsafe_allow_html=True)
+
 
 st.markdown("---")
 st.markdown(

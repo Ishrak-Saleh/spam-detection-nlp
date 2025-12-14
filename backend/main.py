@@ -23,7 +23,7 @@ def transform_text(text):
 
     clean_tokens = []
     for word in tokens:
-        if word.isalnum() and word not in stopwords.words('english'):
+        if word.isalnum() and word not in stopwords.words('english'): 
             clean_tokens.append(ps.stem(word))
 
     return " ".join(clean_tokens)
@@ -32,5 +32,16 @@ def transform_text(text):
 def predict_spam(text):
     transformed = transform_text(text)
     vector_input = tfidf.transform([transformed])
+ 
+    #Get the probability scores: model.predict_proba returns [[prob_ham, prob_spam]]
+    probabilities = model.predict_proba(vector_input)[0]
+    
+    #prob_spam is the score for class 1 (Spam)
+    prob_spam = probabilities[1] 
+    
+    #Get the final classification (0 or 1)
     prediction = model.predict(vector_input)[0]
-    return prediction
+    
+
+    return prediction, prob_spam
+    
