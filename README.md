@@ -29,7 +29,7 @@
 - [Model results](#model-results)
 - [Design decisions](#design-decisions)
 - [Missed spam and false alarms](#missed-spam-and-false-alarms)
-- [Testing by breaking it](#testing-by-breaking-it)
+- [Testing](#testing-by-breaking-it)
 - [Known limits](#known-limits)
 - [Future work](#future-work)
 
@@ -189,7 +189,7 @@ Going from 50% to 40% catches 8 more spam messages for the price of 2 false alar
 
 The spam that gets missed at 50% often has no strong spam words. For example, a quiz-style message with a balance and a question, and a "missed call alert" that only lists a phone number.
 
-## Testing by breaking it
+## Testing
 
 I sent odd messages straight into `predict_spam()` to see where the model fails.
 
